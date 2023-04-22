@@ -1,0 +1,12 @@
+const http=require('http');
+const express=require('express');
+const app=express();
+const bodyParser=require('body-parser');
+const admin=require('./routemvc1/adminmvc1.js');
+const shop=require('./routemvc1/shopmvc1.js');
+const error=require('./controllermvc1/errmvc1.js');
+app.use(bodyParser.urlencoded());
+app.use('/admin',admin);
+app.use('/shop',shop);
+app.use(error.err404);
+app.listen(3000);
